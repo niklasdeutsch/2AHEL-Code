@@ -8,10 +8,18 @@ int main(void)
     int eingabe = 101;
     int zufallszahl = ((rand() % 100) + 1);
     int versuche;
+    int max;
+
+    printf("in welchem Berich soll die Zahl liegen? Gib den maximalen Wert an den die Zahl errichen darf.");
+    scanf("%d", &max);
+    if (zufallszahl > max)
+    {
+        zufallszahl = zufallszahl - (100 - max);
+    }
 
     printf("Wie viele versuche willst du haben?");
     scanf("%d", &versuche);
-    printf("Errate die Zahl von 1 bis 100. Du hast %.0d versuche\n",versuche);
+    printf("Errate die Zahl von 1 bis %d. Du hast %d versuche\n", max, versuche);
 
     for (;eingabe != zufallszahl && versuche > 0 || versuche == -1;)
     {
@@ -39,7 +47,7 @@ int main(void)
 
     if (versuche == 0)
     {
-        printf("Schade, du hast die Zahl nicht erraten\n");
+        printf("Schade, du hast die Zahl nicht erraten. Die Zahl war %d\n", zufallszahl);
     }
 
     if (versuche > 0)
