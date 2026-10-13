@@ -15,9 +15,10 @@ int main(void)
 
     for (;eingabe != zufallszahl && versuche > 0 || versuche == -1;)
     {
-        if (versuche == -1)
+        if (versuche == -1 || eingabe == -1)
         {
             printf("Du hast den Cheat gefunden! Die Zahl ist %d\n", zufallszahl);
+            versuche = 2;
         }
 
         scanf("%d", &eingabe);
@@ -41,7 +42,7 @@ int main(void)
         printf("Schade, du hast die Zahl nicht erraten\n");
     }
 
-    if (versuche > 0 || versuche == -2)
+    if (versuche > 0)
     {
         printf("Richtig");
     }
