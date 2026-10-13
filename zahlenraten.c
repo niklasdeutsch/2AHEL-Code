@@ -6,16 +6,13 @@ int main(void)
 {
     srand(time(NULL));
     int eingabe = 101;
-    int zufallszahl = ((rand() % 100) + 1);
     int versuche;
     int max;
+        int zufallszahl;
 
-    printf("in welchem Berich soll die Zahl liegen? Gib den maximalen Wert an den die Zahl errichen darf.");
+    printf("Gib den maximalen Wert an den die Zahl errichen darf.");
     scanf("%d", &max);
-    if (zufallszahl > max)
-    {
-        zufallszahl = zufallszahl - (100 - max);
-    }
+    zufallszahl = ((rand() % max) + 1);
 
     printf("Wie viele versuche willst du haben?");
     scanf("%d", &versuche);
