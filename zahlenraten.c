@@ -6,23 +6,14 @@ int main(void)
 {
     srand(time(NULL));
     int eingabe = 101;
-    int schwierigkeit = 0;
-    printf("Wähle wie viele Zahlen von 100 abgezogen werden sollen");
-    scanf("%d", &schwierigkeit);
-
-    if (schwierigkeit > 99)
-    {
-        schwierigkeit = 0;
-    }
-
-    int zufallszahl = ((rand() % 100) + 1) - schwierigkeit;
+    int zufallszahl = ((rand() % 100) + 1);
     int versuche;
 
     printf("Wie viele versuche willst du haben?");
     scanf("%d", &versuche);
-    printf("Errate die Zahl von 1 bis %.0d. Du hast %.0d versuche\n", (100 - schwierigkeit), versuche);
+    printf("Errate die Zahl von 1 bis 100. Du hast %.0d versuche\n",versuche);
 
-    for (;eingabe != zufallszahl && versuche > 0; printf("Du hast noch %.0d versuche", versuche), versuche--);
+    for (;eingabe != zufallszahl && versuche > 0;)
     {
         scanf("%d", &eingabe);
 
@@ -34,13 +25,15 @@ int main(void)
         if (eingabe < zufallszahl)
         {
             printf("Zu klein!\n");
-        }
 
+        }
+        versuche--;
+        printf("Du hast noch %.0d versuche\n", versuche);
     }
 
     if (versuche == 0)
     {
-        printf("Schade, du hast die Zahl nicht erraten");
+        printf("Schade, du hast die Zahl nicht erraten\n");
     }
 
     if (versuche > 0)
