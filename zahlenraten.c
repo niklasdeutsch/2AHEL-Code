@@ -13,8 +13,13 @@ int main(void)
     scanf("%d", &versuche);
     printf("Errate die Zahl von 1 bis 100. Du hast %.0d versuche\n",versuche);
 
-    for (;eingabe != zufallszahl && versuche > 0;)
+    for (;eingabe != zufallszahl && versuche > 0 || versuche == -1;)
     {
+        if (versuche == -1)
+        {
+            printf("Du hast den Cheat gefunden! Die Zahl ist %d\n", zufallszahl);
+        }
+
         scanf("%d", &eingabe);
 
         if (eingabe > zufallszahl)
@@ -36,7 +41,7 @@ int main(void)
         printf("Schade, du hast die Zahl nicht erraten\n");
     }
 
-    if (versuche > 0)
+    if (versuche > 0 || versuche == -2)
     {
         printf("Richtig");
     }
