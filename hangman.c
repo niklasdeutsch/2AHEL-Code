@@ -6,7 +6,10 @@ int main() {
     char guess;
 
     printf("Was ist dein guess?");
-    scanf("%c", &guess);
+    if (scanf("%c", &guess) != 1) {
+        printf("Ungültige eingabe!\n");
+        return 1;
+    }
 
     if (guess == secret) {
         printf("Treffer: %c\n", secret);
