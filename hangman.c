@@ -2,22 +2,24 @@
 
 int main() {
 
-    const char secret = 'x';
+    const char secret[] = "MONSTER4EVER";
     char guess;
 
-    printf("Was ist dein guess?");
-    if (scanf("%c", &guess) != 1) {
+    printf("Buchstabe: ");
+
+    if (scanf(" %c", &guess) != 1) {
         printf("Ungültige eingabe!\n");
         return 1;
     }
 
-    if (guess == secret) {
-        printf("Treffer: %c\n", secret);
-    }
-    else {
-        printf("Fail\n");
+    int hits = 0;
+    for(int i = 0; i < sizeof(secret) - 1; i++) {
+        if ((secret[i]) == guess) {
+            hits++;
+        }
     }
 
+    printf("Treffer: %d\n", hits);
 
 return 0;
 }
