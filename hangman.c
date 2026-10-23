@@ -2,24 +2,33 @@
 
 int main() {
 
-    const char secret[] = "MONSTER4EVER";
+    const char secret[] = "TestTest";
+    const int len = sizeof(secret) - 1;
+    char guessed[len];
     char guess;
+    int hits = 0;
 
-    printf("Buchstabe: ");
+    for (int i = 0; i < len; i++) {
+        guessed[i] = '_';
+    }
 
-    if (scanf(" %c", &guess) != 1) {
+    printf("Rate einen Buchstaben: ");
+
+    if (scanf("%c", &guess) != 1) {
         printf("Ungültige eingabe!\n");
         return 1;
     }
 
-    int hits = 0;
-    for(int i = 0; i < sizeof(secret) - 1; i++) {
+    for (int i = 0; i < len; i++) {
         if ((secret[i]) == guess) {
             hits++;
+            guessed[i] = guess;
         }
     }
 
-    printf("Treffer: %d\n", hits);
-
-return 0;
+    for (int i = 0; i < len; i++) {
+        printf("%c ", guessed[i]);
+    }
+    printf("\nTreffer: %d\n", hits);
+    return 0;
 }
